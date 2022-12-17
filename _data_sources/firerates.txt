@@ -1,0 +1,31 @@
+Ragun Burst: 900
+Ragun Semi: 450
+SA80 (LMG Barrel): 825
+DMG 9m: 800
+SIG: 770
+G36: 750
+SA80: 750
+M4 MWS: 740
+Vityaz: 720
+MSBS-K: 720
+MG5: 720
+QBZ-95: 700
+MSBS-B: 670
+UKM: 660
+K2C1: 650
+M416: 650
+Glauberyt: 650
+AK15: 620
+Beryl: 600
+Lebedev: 600
+Alpha: 580 | Burst 1100
+PKP Pecheneg BP: 550
+SCAR-H: 525
+G17: 450
+M417: 430
+SIX12: 400
+Vepr: 300 (7 pellets)
+MCS: 70, short barrel ~81 (11 pellets)
+Tochnost: 65
+G29: 40
+M200: 25

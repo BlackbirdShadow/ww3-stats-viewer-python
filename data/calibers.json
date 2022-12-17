@@ -1,0 +1,109 @@
+[
+    {
+        "shortname":"9X19",
+        "name":"9x19mm Parabellum",
+        "pellets": "1",
+        "compact":[[16,31],[45,20]],
+        "standard": [[16,29],[45,23]],
+        "marksman": [[16,28],[45,27]]
+    },
+    {
+        "shortname":"9X18",
+        "name":"9x18mm Makarov",
+        "pellets": "1",
+        "compact":[[24,33],[54,25]],
+        "standard": [[24,31],[54,27]],
+        "marksman": [[24,29],[54,28]]
+    },
+    {
+        "shortname":"40SW",
+        "name":".40 S&W",
+        "pellets": "1",
+        "compact":[[17,37],[36,16]],
+        "standard": [[17,34],[36,20]],
+        "marksman": [[17,25],[36,24]]
+    },
+    {
+        "shortname":"5_56X45",
+        "name":"5.56x45mm NATO",
+        "pellets": "1",
+        "compact":[[40,34],[90,23]],
+        "standard": [[40,31],[90,26]],
+        "marksman": [[40,29],[90,29]]
+    },
+    {
+        "shortname":"5_8X42",
+        "name":"5.8x42mm DBP-10",
+        "pellets": "1",
+        "compact":[[40,34],[90,23]],
+        "standard": [[40,31],[90,26]],
+        "marksman": [[40,29],[90,29]]
+    },
+    {
+        "shortname":"300BLK",
+        "name":".300 Blackout",
+        "pellets": "1",
+        "compact":[[34,37],[45,30],[75,22]],
+        "standard": [[34,35],[45,30],[75,24]],
+        "marksman": [[34,33],[75,26]]
+    },
+    {
+        "shortname":"7_62X39",
+        "name":"7.62x39mm Soviet",
+        "pellets": "1",
+        "compact":[[45,37],[110,28]],
+        "standard": [[45,35],[110,30]],
+        "marksman": [[45,33],[110,32]]
+    },
+    {
+        "shortname":"7_62X51",
+        "name":"7.62x51mm NATO",
+        "pellets": "1",
+        "compact":[[50,43],[120,29]],
+        "standard": [[50,40],[120,32]],
+        "marksman": [[50,37],[120,35]]
+    },
+    {
+        "shortname":"7_62X54R",
+        "name":"7.62x54mm Rimmed",
+        "pellets": "1",
+        "dropoffs":[50,120],
+        "compact":[[50,41],[120,27]],
+        "standard": [[50,38],[120,30]],
+        "marksman": [[50,35],[120,33]]
+    },
+    {
+        "shortname":"7_62X51S",
+        "name":"7.62x51 Sniper (Tochnost variant)",
+        "pellets": "1",
+        "compact":[[30,120],[40,55]],
+        "standard": [[40,85],[90,65]],
+        "marksman": [[0,75]]
+    },
+    {
+        "shortname":"338MAG",
+        "name":".338 Lapua Magnum",
+        "pellets": "1",
+        "compact":[[35,125],[45,65]],
+        "standard": [[60,95],[120,75]],
+        "marksman": [[0,85]]
+    },
+    {
+        "shortname":"408",
+        "name":".408 Cheyenne Tactical",
+        "pellets": "1",
+        "standard": [[150,175],[180,150],[240,150],[260,120]]
+    },
+    {
+        "shortname":"12G_MCS",
+        "name":"12 Gauge Buckshot (MCS variant)",
+        "pellets": "11",
+        "standard": [[13,18],[18,9],[35,6],[60,6],[80,0]]
+    },
+    {
+        "shortname":"12G_VEPR",
+        "name":"12 Gauge Buckshot (Vepr variant)",
+        "pellets": "7",
+        "standard": [[13,15],[20,10],[30,2],[40,2],[50,0]]
+    }
+]
