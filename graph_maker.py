@@ -30,7 +30,7 @@ def get_graph_canvas(ammo_data, title, color):
         plt.text(i,j+0.5,str(j).format(i, j))
 
     # defining y axis bounds, show lowest damage - 10 except if negative then zero, highest dmage +
-    plt.ylim(lowest_damage-0.5 if lowest_damage-0.5 >= 0 else 0, highest_damage + 5)
+    plt.ylim(lowest_damage-2 if lowest_damage-2 >= 0 else 0, highest_damage + 5)
 
     # add a title and axis labels
     plt.title(title)

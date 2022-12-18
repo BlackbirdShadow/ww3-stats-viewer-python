@@ -47,8 +47,7 @@ def __launch_app():
     gun_realname_label.pack()
     gun_weight_label.pack()
     gun_firerate_label.pack()
-    gun_caliber_label.pack()
-
+    gun_caliber_label.pack(pady=10)
 
     selected_barrel = StringVar(root)
     selected_barrel.set("")
@@ -78,7 +77,7 @@ def __launch_app():
         if ammo.marksman:
             barrel_options.append("Marksman")
         
-        dropdown_barrels.pack()
+        dropdown_barrels.pack(pady=10)
         #dropdown_barrels = OptionMenu(root, selected_barrel, barrel_options)
         menu = dropdown_barrels.children["menu"]
         menu.delete(0, "end")
@@ -100,6 +99,7 @@ def __launch_app():
         elif barrel_selection == "Marksman":
             figure = graph_maker.get_graph_canvas(ammo.marksman, ammo.name + " damage", "green")
 
+        
         canvas = FigureCanvasTkAgg(figure, root)
         canvas.get_tk_widget().pack()
         
