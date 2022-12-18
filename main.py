@@ -4,8 +4,8 @@ import json
 import gun
 import caliber
 from functools import partial
-
-
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
 
 def load_data(filename:str, Class) -> list:
     list = []
@@ -56,9 +56,9 @@ def __launch_app():
     dropdown_barrels = OptionMenu(root, selected_barrel, [])
     
 
-    def show_gun_info(selected, *args):
+    def show_gun_info(gun_selection, *args):
         # Retrieve the data for the selected table
-        gun = next(gun for gun in guns if gun.fullname == selected.get())
+        gun = next(gun for gun in guns if gun.fullname == gun_selection.get())
         ammo = next(ammo for ammo in calibers if ammo.shortname == gun.caliber)
 
         gun_title_label.config(text=gun.fullname + " (" + gun.type.value + ")")
@@ -83,14 +83,26 @@ def __launch_app():
         menu = dropdown_barrels.children["menu"]
         menu.delete(0, "end")
 
-        for option in barrel_options:
-            menu.add_command(label=option)
-
         selected_barrel.set("Choose a barrel...")
-        selected_barrel.trace('w', partial(show_ballistic_info, selected_barrel, ammo))
+        for option in barrel_options:
+            menu.add_command(label=option, command=partial(show_ballistic_info, option, ammo))
 
-    def show_ballistic_info(selected, ammo, *args):
-        print("Barrel clck")
+        
+
+    def show_ballistic_info(barrel_selection, ammo, *args):
+        selected_barrel.set(barrel_selection)
+        ballistic_data = []
+        figure = None
+        if barrel_selection == "Standard":
+            figure = graph_maker.get_graph_canvas(ammo.standard, ammo.name + " damage", "blue")
+        elif barrel_selection == "Compact":
+            figure = graph_maker.get_graph_canvas(ammo.compact, ammo.name + " damage", "red")
+        elif barrel_selection == "Marksman":
+            figure = graph_maker.get_graph_canvas(ammo.marksman, ammo.name + " damage", "green")
+
+        canvas = FigureCanvasTkAgg(figure, root)
+        canvas.get_tk_widget().pack()
+        
 
 
     # Call the show_table function whenever the user selects a different table from the dropdown
