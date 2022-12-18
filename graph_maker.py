@@ -1,10 +1,4 @@
 import matplotlib.pyplot as plt
-from tkinter import *
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
-NavigationToolbar2Tk)
-
-
 
 def get_graph_canvas(ammo, title):
 
