@@ -1,6 +1,13 @@
 import matplotlib.pyplot as plt
+from tkinter import *
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
+NavigationToolbar2Tk)
 
-def get_graph(ammo: list, title: str):
+
+
+def get_graph_canvas(ammo, title):
+
     # fill arrays that define the point values for the broken line graph
     # first point at 0 meters, max damage
     distances = [0]
@@ -30,5 +37,6 @@ def get_graph(ammo: list, title: str):
     plt.xlabel('Meters')
     plt.ylabel('Damage')
 
-    # show the plot
-    plt.show()
+    #plt.show()
+
+

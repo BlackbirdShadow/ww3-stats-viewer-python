@@ -1,6 +1,6 @@
 [
     {
-        "gun_shortname": "mcs",
+        "shortname": "mcs",
         "class": "SHOTGUN",
         "fire_type": "BOLT",
         "weight": 5,
@@ -11,7 +11,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "six12",
+        "shortname": "six12",
         "class": "ATTACHMENT",
         "fire_type": "SEMI",
         "weight": 0,
@@ -22,7 +22,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "vepr",
+        "shortname": "vepr",
         "class": "SHOTGUN",
         "fire_type": "SEMI",
         "weight": 4,
@@ -33,7 +33,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "g17",
+        "shortname": "g17",
         "class": "PISTOL",
         "fire_type": "SEMI",
         "weight": 0,
@@ -44,7 +44,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "lebedev",
+        "shortname": "lebedev",
         "class": "PISTOL",
         "fire_type": "SEMI",
         "weight": 1,
@@ -55,7 +55,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "ragun_semi",
+        "shortname": "ragun_semi",
         "class": "PISTOL",
         "fire_type": "SEMI",
         "weight": 1,
@@ -66,7 +66,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "ragun_burst",
+        "shortname": "ragun_burst",
         "class": "PISTOL",
         "fire_type": "BURST",
         "weight": 1,
@@ -77,7 +77,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "dmg",
+        "shortname": "dmg",
         "class": "SMG",
         "fire_type": "AUTO",
         "weight": 2,
@@ -88,7 +88,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "glauberyt",
+        "shortname": "glauberyt",
         "class": "SMG",
         "fire_type": "AUTO",
         "weight": 2,
@@ -99,7 +99,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "sig",
+        "shortname": "sig",
         "class": "SMG",
         "fire_type": "AUTO",
         "weight": 3,
@@ -110,7 +110,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "vityaz",
+        "shortname": "vityaz",
         "class": "SMG",
         "fire_type": "AUTO",
         "weight": 3,
@@ -121,7 +121,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "ak15",
+        "shortname": "ak15",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 5,
@@ -132,7 +132,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "alpha_burst",
+        "shortname": "alpha_burst",
         "class": "AR",
         "fire_type": "BURST",
         "weight": 6,
@@ -143,7 +143,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "alpha_auto",
+        "shortname": "alpha_auto",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 6,
@@ -154,7 +154,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "beryl",
+        "shortname": "beryl",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 4,
@@ -165,7 +165,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "g36",
+        "shortname": "g36",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 4,
@@ -176,7 +176,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "k2c1",
+        "shortname": "k2c1",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 3,
@@ -187,7 +187,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "m4",
+        "shortname": "m4",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 4,
@@ -198,7 +198,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "m416",
+        "shortname": "m416",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 6,
@@ -209,7 +209,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "msbs-b",
+        "shortname": "msbs-b",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 4,
@@ -220,7 +220,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "msbs-k",
+        "shortname": "msbs-k",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 5,
@@ -231,7 +231,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "qbz-95",
+        "shortname": "qbz-95",
         "class": "AR",
         "fire_type": "AUTO",
         "weight": 5,
@@ -242,7 +242,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "m417",
+        "shortname": "m417",
         "class": "BR",
         "fire_type": "AUTO",
         "weight": 7,
@@ -253,7 +253,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "scar-h",
+        "shortname": "scar-h",
         "class": "BR",
         "fire_type": "AUTO",
         "weight": 6,
@@ -264,7 +264,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "mg5",
+        "shortname": "mg5",
         "class": "LMG",
         "fire_type": "AUTO",
         "weight": 8,
@@ -275,7 +275,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "pecheneg",
+        "shortname": "pecheneg",
         "class": "LMG",
         "fire_type": "AUTO",
         "weight": 6,
@@ -286,7 +286,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "sa80",
+        "shortname": "sa80",
         "class": "LMG",
         "fire_type": "AUTO",
         "weight": 5,
@@ -297,7 +297,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "ukm",
+        "shortname": "ukm",
         "class": "LMG",
         "fire_type": "AUTO",
         "weight": 7,
@@ -308,7 +308,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "g29",
+        "shortname": "g29",
         "class": "SNIPER",
         "fire_type": "BOLT",
         "weight": 6,
@@ -319,7 +319,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "m200",
+        "shortname": "m200",
         "class": "SNIPER",
         "fire_type": "BOLT",
         "weight": 9,
@@ -330,7 +330,7 @@
         "desc": ""
     },
     {
-        "gun_shortname": "tochnost",
+        "shortname": "tochnost",
         "class": "SNIPER",
         "fire_type": "BOLT",
         "weight": 5,
