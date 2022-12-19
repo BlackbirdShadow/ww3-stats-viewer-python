@@ -2,9 +2,7 @@ import matplotlib.pyplot as plt
 
 def get_graph_figure(ammo_data, title, color):
 
-    figure = plt.figure()   
-    figure.set_figwidth(5)
-    figure.set_figheight(3.8)
+    figure = plt.figure(figsize=(6,4), dpi=80)
     # fill arrays that define the point values for the broken line graph
     # first point at 0 meters, max damage
     distances = [0]
@@ -33,15 +31,18 @@ def get_graph_figure(ammo_data, title, color):
         plt.text(i+0.1,j+0.7,str(j).format(i, j))
 
     # defining y axis bounds, show lowest damage - 10 except if negative then zero, highest dmage +
-    plt.ylim(lowest_damage-2 if lowest_damage-2 >= 0 else 0, highest_damage + 2)
+    plt.ylim(15 if lowest_damage >= 15 else 0, highest_damage + 3)
     plt.xlim(int(distances[0]), int(distances[-1]))
 
-    minor_interval = 5 if distances[-1]<100 else 10
+    range_interval = 5 if distances[-1]<100 else 10
     ax = plt.gca()
-    ax.set_xticks([i for i in range(0, int(distances[-1]))][::minor_interval], minor=True)
+    ax.set_xticks([i for i in range(0, int(distances[-1]))][::range_interval], minor=True)
     ax.xaxis.grid(True, which = 'minor')
     ax.xaxis.grid(True, which = 'major')
 
+    damage_interval = 5 if highest_damage<100 else 10
+    ax.set_yticks([i for i in range(15 if lowest_damage >= 15 else 0, highest_damage + 3)][::damage_interval])
+    ax.yaxis.grid(True)
     
     # add a title and axis labels
     plt.title(title)

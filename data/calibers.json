@@ -74,7 +74,7 @@
     },
     {
         "shortname":"7_62X51S",
-        "name":"7.62x51 Sniper (Tochnost variant)",
+        "name":"7.62x51S (Tochnost)",
         "pellets": "1",
         "compact":[[30,120],[40,55]],
         "standard": [[40,85],[90,65]],
@@ -90,19 +90,20 @@
     },
     {
         "shortname":"408",
-        "name":".408 Cheyenne Tactical",
+        "name":".408 CheyTac",
         "pellets": "1",
         "standard": [[150,175],[180,150],[240,150],[260,120]]
     },
     {
         "shortname":"12G_MCS",
-        "name":"12 Gauge Buckshot (MCS variant)",
+        "name":"12g Buckshot (MCS)",
         "pellets": "11",
         "standard": [[13,18],[18,9],[35,6],[60,6],[80,0]]
     },
     {
         "shortname":"12G_VEPR",
-        "name":"12 Gauge Buckshot (Vepr variant)",
+        "name":"12g Buckshot (Vepr)",
+        
         "pellets": "7",
         "standard": [[13,15],[20,10],[30,2],[40,2],[50,0]]
     }

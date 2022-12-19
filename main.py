@@ -81,7 +81,7 @@ def __launch_app():
         if ammo.marksman:
             barrel_options.append("Marksman")
         
-        dropdown_barrels.pack(pady=10)
+        dropdown_barrels.pack(pady=1)
         menu = dropdown_barrels.children["menu"]
         menu.delete(0, "end")
 
