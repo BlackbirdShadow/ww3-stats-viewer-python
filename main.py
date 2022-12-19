@@ -6,6 +6,7 @@ import caliber
 from functools import partial
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
+from PIL import Image,ImageTk
 
 def load_data(filename:str, Class) -> list:
     list = []
@@ -19,7 +20,6 @@ def load_data(filename:str, Class) -> list:
 
  # Define the function to be executed when the selection in the dropdown menu changes
 
-
 def __launch_app():
     
     guns = load_data("gunstats.json",gun.Gun)
@@ -27,7 +27,8 @@ def __launch_app():
 
     # Create object
     root = Tk()
-    root.geometry( "500x700" )
+    root.geometry( "500x800" )
+    root.title('WW3 Stats Utility')
 
     selected_gun = StringVar(root)
     selected_gun.set("Choose a gun...")
@@ -47,20 +48,23 @@ def __launch_app():
     gun_realname_label.pack()
     gun_weight_label.pack()
     gun_firerate_label.pack()
-    gun_caliber_label.pack(pady=10)
+    gun_caliber_label.pack(pady=1)
 
     selected_barrel = StringVar(root)
     selected_barrel.set("")
 
     dropdown_barrels = OptionMenu(root, selected_barrel, [])
+    fig_canvas = Label()
+    
     
 
     def show_gun_info(gun_selection, *args):
         # Retrieve the data for the selected table
+        fig_canvas.pack_forget()
         gun = next(gun for gun in guns if gun.fullname == gun_selection.get())
         ammo = next(ammo for ammo in calibers if ammo.shortname == gun.caliber)
 
-        gun_title_label.config(text=gun.fullname + " (" + gun.type.value + ")")
+        gun_title_label.config(text=gun.fullname + " - " + gun.type.value)
         if(gun.fullname.lower() != gun.realname.lower()):
             gun_realname_label.config(text="Real name: " + gun.realname)
         else:
@@ -78,7 +82,6 @@ def __launch_app():
             barrel_options.append("Marksman")
         
         dropdown_barrels.pack(pady=10)
-        #dropdown_barrels = OptionMenu(root, selected_barrel, barrel_options)
         menu = dropdown_barrels.children["menu"]
         menu.delete(0, "end")
 
@@ -90,18 +93,25 @@ def __launch_app():
 
     def show_ballistic_info(barrel_selection, ammo, *args):
         selected_barrel.set(barrel_selection)
-        ballistic_data = []
-        figure = None
+        ammo_stats = []
+        title = barrel_selection + " barrel damage"
         if barrel_selection == "Standard":
-            figure = graph_maker.get_graph_canvas(ammo.standard, ammo.name + " damage", "blue")
+            ammo_stats = ammo.standard
         elif barrel_selection == "Compact":
-            figure = graph_maker.get_graph_canvas(ammo.compact, ammo.name + " damage", "red")
+            ammo_stats =  ammo.compact
         elif barrel_selection == "Marksman":
-            figure = graph_maker.get_graph_canvas(ammo.marksman, ammo.name + " damage", "green")
-
+            ammo_stats = ammo.marksman
         
-        canvas = FigureCanvasTkAgg(figure, root)
-        canvas.get_tk_widget().pack()
+        
+        figure = graph_maker.get_graph_figure(ammo_stats, title, "green")
+
+        figure.savefig("figure.png", transparent=True)
+        img = ImageTk.PhotoImage(Image.open("figure.png"))
+        
+        fig_canvas.config(image=img)
+        fig_canvas.image = img
+        fig_canvas.pack()
+        
         
 
 

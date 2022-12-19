@@ -29,7 +29,7 @@
         "pellets": "1",
         "compact":[[40,34],[90,23]],
         "standard": [[40,31],[90,26]],
-        "marksman": [[40,29],[90,29]]
+        "marksman": [[0,29]]
     },
     {
         "shortname":"5_8X42",
@@ -37,7 +37,7 @@
         "pellets": "1",
         "compact":[[40,34],[90,23]],
         "standard": [[40,31],[90,26]],
-        "marksman": [[40,29],[90,29]]
+        "marksman": [[0,29]]
     },
     {
         "shortname":"300BLK",
