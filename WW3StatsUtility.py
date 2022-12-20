@@ -32,7 +32,7 @@ def __launch_app():
 
     # Create object
     root = Tk()
-    root.geometry( "500x700" )
+    root.geometry( "510x720" )
     root.title('WW3 Stats Utility')
 
     selected_gun = StringVar(root)
@@ -92,8 +92,7 @@ def __launch_app():
     Label(text = "STK:", font=("Arial", 11), anchor="w").grid(row = 12, column = 0, columnspan = 1, rowspan = 1, sticky = W, padx = (80,0))
     Label(text = "TTK:", font=("Arial", 11), anchor="w").grid(row = 12, column = 2, columnspan = 1, rowspan = 1, sticky = W, padx = (0,0))
 
-    Label(text = "Licensed under GNU General Public License v3.0", font=("Arial italic", 9), anchor="w").grid(row = 13, column = 0, columnspan = 4, rowspan = 1, pady = 5)
-
+    
     text_ttk_dmg = Label(text = "", font=("Arial", 11), anchor="e")
     text_ttk_dmg.grid(row = 11, column = 1, columnspan = 1, rowspan = 1, sticky = E, padx = (0,10))
 
@@ -106,15 +105,19 @@ def __launch_app():
     text_ttk_ttk = Label(text = "", font=("Arial", 11), anchor="e")
     text_ttk_ttk.grid(row = 12, column = 3, columnspan = 1, rowspan = 1, sticky = E, padx = (0,80))
 
-    
+    text_pellets = Label(text = "", font=("Arial", 10))
+
+    Label(text = "Licensed under GNU General Public License v3.0", font=("Arial italic", 9)).grid(row = 14, column = 0, columnspan = 4, rowspan = 1, pady = 5)
         
 
     def show_gun_info(gun_selection, *args):
+        
         label_ttk_title.config(text= "TTK Calculator (Choose a barrel)") 
         text_ttk_dmg.config(text="")
         text_ttk_dps.config(text="")
         text_ttk_stk.config(text="")
         text_ttk_ttk.config(text="")
+        text_pellets.grid_forget()
 
         global current_ammo_config
         current_ammo_config = []
@@ -207,6 +210,14 @@ def __launch_app():
             distance = int(distance_input.get())
             if distance >=0:
                 damage = calculate_damage(current_ammo_config,distance, selected_region.get())
+
+                ammo = next(ammo for ammo in calibers if ammo.shortname == current_gun.caliber)
+
+                pellets = int(ammo.pellets)
+                if pellets > 1:
+                    damage = damage*pellets
+                    text_pellets.config(text="Assuming all pellets hit (" + ammo.pellets + " pellets)")
+                    text_pellets.grid(row = 13, column = 0, columnspan = 4, rowspan = 1)
                 
                 rps = current_gun.rof/60
                 dps = round(damage*(rps))
