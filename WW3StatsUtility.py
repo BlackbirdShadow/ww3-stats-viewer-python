@@ -5,10 +5,9 @@ import json
 import gun
 import caliber
 from functools import partial
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import matplotlib.pyplot as plt
 from PIL import Image,ImageTk
 import math
+import sys
 
 current_ammo_config = []
 current_gun = None
@@ -27,11 +26,16 @@ def load_data(filename:str, Class) -> list:
 
 def __launch_app():
     
+    def quitting():
+        root.quit()
+        root.destroy()
+
     guns = load_data("gunstats.json",gun.Gun)
     calibers = load_data("calibers.json",caliber.Caliber)
 
     # Create object
     root = Tk()
+    root.protocol("WM_DELETE_WINDOW", quitting)
     root.geometry( "510x720" )
     root.title('WW3 Stats Utility')
 
@@ -238,6 +242,9 @@ def __launch_app():
 
     # Start the event loop
     root.mainloop()
+    
+    
 
 if __name__ == '__main__':
+    
     __launch_app()
