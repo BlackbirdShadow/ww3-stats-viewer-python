@@ -78,7 +78,11 @@ def __launch_app():
     Label(text = "Distance:", font=("Arial", 11), anchor="w").grid(row = 9, column = 0, columnspan = 1, rowspan = 1, sticky = W, padx = (90,0))
     Label(text = "Region:", font=("Arial", 11), anchor="w").grid(row = 9, column = 2, columnspan = 1, rowspan = 1, sticky = W, padx = (0,0))
 
-    distance_input = Entry(root)
+    
+    current_distance = StringVar(root)
+    current_distance.set("")
+    
+    distance_input = Entry(root, textvariable=current_distance)
     distance_input.config(width=5)
     distance_input.grid(row = 9, column = 1, columnspan = 1, rowspan = 1,padx = (5,50))
 
@@ -201,7 +205,7 @@ def __launch_app():
         #TTK calculator elements
 
 
-    def calculate_ttk():
+    def calculate_ttk(*args):
         global current_gun
 
         text_ttk_dmg.config(text="")
@@ -240,9 +244,8 @@ def __launch_app():
 
     # Call the show_table function whenever the user selects a different table from the dropdown
     selected_gun.trace('w', partial(show_gun_info, selected_gun))
-
-    ttk_button = Button(root, text = 'Calculate', bd = '2', command = calculate_ttk)
-    ttk_button.grid(row = 10, column = 0, columnspan = 4, rowspan = 1, pady = 2)
+    selected_region.trace("w", calculate_ttk)
+    current_distance.trace("w", calculate_ttk)
 
     # Start the event loop
     root.mainloop()
