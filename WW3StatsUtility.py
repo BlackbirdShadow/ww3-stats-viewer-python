@@ -214,23 +214,28 @@ def __launch_app():
             if distance >=0:
                 damage = calculate_damage(current_ammo_config,distance, selected_region.get())
 
-                ammo = next(ammo for ammo in calibers if ammo.shortname == current_gun.caliber)
-
-                pellets = int(ammo.pellets)
-                if pellets > 1:
-                    damage = damage*pellets
-                    text_pellets.config(text="Assuming all pellets hit (" + ammo.pellets + " pellets)")
-                    text_pellets.grid(row = 13, column = 0, columnspan = 4, rowspan = 1)
+                if damage > 0:
+                    ammo = next(ammo for ammo in calibers if ammo.shortname == current_gun.caliber)
+                    pellets = int(ammo.pellets)
+                    if pellets > 1:
+                        damage = damage*pellets
+                        text_pellets.config(text="Assuming all pellets hit (" + ammo.pellets + " pellets)")
+                        text_pellets.grid(row = 13, column = 0, columnspan = 4, rowspan = 1)
+                    
+                    rps = current_gun.rof/60
+                    dps = round(damage*(rps))
+                    stk = math.ceil(100/damage)
+                    ttk = round(((stk-1)/rps)*1000)
+                    text_ttk_dmg.config(text=str(damage))
+                    text_ttk_dps.config(text=str(dps))
+                    text_ttk_stk.config(text=str(stk))
+                    text_ttk_ttk.config(text=str(ttk) + "ms")
+                else: 
+                    text_ttk_dmg.config(text="0")
+                    text_ttk_dps.config(text="0")
+                    text_ttk_stk.config(text="N/A")
+                    text_ttk_ttk.config(text="N/A")
                 
-                rps = current_gun.rof/60
-                dps = round(damage*(rps))
-                stk = math.ceil(100/damage)
-                ttk = round(((stk-1)/rps)*1000)
-
-                text_ttk_dmg.config(text=str(damage))
-                text_ttk_dps.config(text=str(dps))
-                text_ttk_stk.config(text=str(stk))
-                text_ttk_ttk.config(text=str(ttk) + "ms")
             
 
     # Call the show_table function whenever the user selects a different table from the dropdown
