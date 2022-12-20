@@ -35,7 +35,7 @@ def __launch_app():
     # Create object
     root = Tk()
     root.protocol("WM_DELETE_WINDOW", quitting)
-    root.geometry( "510x720" )
+    root.geometry( "550x720" )
     root.title('WW3 Stats Utility')
 
     selected_gun = StringVar(root)
@@ -45,7 +45,7 @@ def __launch_app():
     gun_options = [gun.fullname for gun in guns]
     dropdown_guns = OptionMenu(root, selected_gun, *gun_options)
     dropdown_guns.config(width=20)
-    dropdown_guns.grid(row = 0, column = 0, columnspan = 4, rowspan = 1, padx = 150, pady = 5)
+    dropdown_guns.grid(row = 0, column = 0, columnspan = 4, rowspan = 1, padx = 190, pady = 5)
 
     gun_title_label = Label(text = "Select a gun", font=("Arial", 15))
     gun_realname_label = Label(text = "", font=("Arial", 8), fg="green")
@@ -75,7 +75,7 @@ def __launch_app():
     label_ttk_title.grid(row = 8, column = 0, columnspan = 4, rowspan = 1, pady = 3)
 
     # TTK inputs init
-    Label(text = "Distance:", font=("Arial", 11), anchor="w").grid(row = 9, column = 0, columnspan = 1, rowspan = 1, sticky = E, padx = (120,0))
+    Label(text = "Distance:", font=("Arial", 11), anchor="w").grid(row = 9, column = 0, columnspan = 1, rowspan = 1, sticky = W, padx = (90,0))
     Label(text = "Region:", font=("Arial", 11), anchor="w").grid(row = 9, column = 2, columnspan = 1, rowspan = 1, sticky = W, padx = (0,0))
 
     distance_input = Entry(root)
@@ -87,7 +87,7 @@ def __launch_app():
 
     region_dropdown = OptionMenu(root, selected_region, *["Head","Torso/Arms","Legs","Feet"])
     region_dropdown.config(width=10)
-    region_dropdown.grid(row = 9, column = 3, columnspan = 1, rowspan = 1,padx = (5,50))
+    region_dropdown.grid(row = 9, column = 3, columnspan = 1, rowspan = 1,padx = (0,90))
 
     # TTK texts init
     Label(text = "Damage:", font=("Arial", 11), anchor="w").grid(row = 11, column = 0, columnspan = 1, rowspan = 1, sticky = W, padx = (80,0))
