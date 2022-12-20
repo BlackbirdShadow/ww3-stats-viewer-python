@@ -7,6 +7,7 @@ import caliber
 from functools import partial
 from PIL import Image,ImageTk
 import math
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,  NavigationToolbar2Tk)
 
 current_ammo_config = []
 current_gun = None
@@ -35,7 +36,7 @@ def __launch_app():
     # Create object
     root = Tk()
     root.protocol("WM_DELETE_WINDOW", quitting)
-    root.geometry( "550x720" )
+    root.geometry( "545x720" )
     root.title('WW3 Stats Utility')
 
     selected_gun = StringVar(root)
@@ -67,7 +68,7 @@ def __launch_app():
     gun_firerate_text.grid(row = 4, column = 2, columnspan = 2, rowspan = 1, sticky = E, padx = (0,100))
     gun_caliber_text.grid(row = 5, column = 2, columnspan = 2, rowspan = 1, sticky = E, padx = (0,100))
 
-    fig_canvas = Label()
+    
     
 
     #TTK Calculator elements init
@@ -118,14 +119,12 @@ def __launch_app():
         
 
     def show_gun_info(gun_selection, *args):
-        
+    
+
         text_pellets.grid_forget()
 
         global current_ammo_config
         current_ammo_config = []
-
-        # Forget graph canvas
-        fig_canvas.grid_forget()
 
         #Forget TTK button
 
@@ -186,12 +185,10 @@ def __launch_app():
 
         figure = get_graph_figure(ammo_stats, title, "green")
 
-        figure.savefig("data/temp_figure.png", transparent=True)
-        img = ImageTk.PhotoImage(Image.open("data/temp_figure.png"))
         
-        fig_canvas.config(image=img)
-        fig_canvas.image = img
-        fig_canvas.grid(row = 7, column = 0, columnspan = 4, rowspan = 1, pady = 2)
+        fig_canvas = FigureCanvasTkAgg(figure, master = root)
+        fig_canvas.draw()
+        fig_canvas.get_tk_widget().grid(row = 7, column = 0, columnspan = 4, rowspan = 1, pady = 2)
         calculate_ttk()
         #TTK calculator elements
 
