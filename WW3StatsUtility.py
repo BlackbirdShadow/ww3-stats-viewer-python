@@ -7,7 +7,6 @@ import caliber
 from functools import partial
 from PIL import Image,ImageTk
 import math
-import sys
 
 current_ammo_config = []
 current_gun = None
@@ -192,8 +191,8 @@ def __launch_app():
 
         figure = get_graph_figure(ammo_stats, title, "green")
 
-        figure.savefig("cache/temp_figure.png", transparent=True)
-        img = ImageTk.PhotoImage(Image.open("cache/temp_figure.png"))
+        figure.savefig("data/temp_figure.png", transparent=True)
+        img = ImageTk.PhotoImage(Image.open("data/temp_figure.png"))
         
         fig_canvas.config(image=img)
         fig_canvas.image = img

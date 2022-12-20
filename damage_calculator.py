@@ -1,20 +1,19 @@
 from scipy.interpolate import interp1d
-import numpy as np
 
 
 def calculate_damage(ammo_data: list, distance:int, region:str) -> int:
     
     distances, damages = zip(*ammo_data)
 
+    raw_damage = 0
+
     if distance <= distances[0]:
-        return damages[0]
+        raw_damage = damages[0]
     elif distance >= distances[-1]:
-        return damages[-1]
-
-    function = interp1d(distances, damages, kind='linear')
-
-    raw_damage = function(distance)
-    #"Head","Torso/Arms","Legs","Feet"
+        raw_damage = damages[-1]
+    else:
+        function = interp1d(distances, damages, kind='linear')
+        raw_damage = function(distance)
 
     if region == "Head":
         raw_damage = raw_damage*2
@@ -23,6 +22,6 @@ def calculate_damage(ammo_data: list, distance:int, region:str) -> int:
     elif region == "Feet":
         raw_damage = raw_damage*0.57
 
-    damage = int(np.round(raw_damage))
+    damage = int(round(raw_damage))
 
     return damage

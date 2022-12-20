@@ -31,7 +31,9 @@ def get_graph_figure(ammo_data, title, color):
         plt.text(i+0.1,j+0.7,str(j).format(i, j))
 
     # defining y axis bounds, show lowest damage - 10 except if negative then zero, highest dmage +
-    plt.ylim(15 if lowest_damage >= 15 else 0, highest_damage + 3)
+    graph_low = int(round(lowest_damage/5.0)*5.0)-10 if lowest_damage >= 20 else 0
+
+    plt.ylim(graph_low, highest_damage + 5)
     plt.xlim(int(distances[0]), int(distances[-1]))
 
     range_interval = 5 if distances[-1]<100 else 10
@@ -41,7 +43,7 @@ def get_graph_figure(ammo_data, title, color):
     ax.xaxis.grid(True, which = 'major')
 
     damage_interval = 5 if highest_damage<100 else 10
-    ax.set_yticks([i for i in range(15 if lowest_damage >= 15 else 0, highest_damage + 3)][::damage_interval])
+    ax.set_yticks([i for i in range(graph_low, highest_damage + 3)][::damage_interval])
     ax.yaxis.grid(True)
     
     # add a title and axis labels
