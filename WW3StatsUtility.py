@@ -119,11 +119,6 @@ def __launch_app():
 
     def show_gun_info(gun_selection, *args):
         
-        label_ttk_title.config(text= "TTK Calculator (Choose a barrel)") 
-        text_ttk_dmg.config(text="")
-        text_ttk_dps.config(text="")
-        text_ttk_stk.config(text="")
-        text_ttk_ttk.config(text="")
         text_pellets.grid_forget()
 
         global current_ammo_config
@@ -170,14 +165,10 @@ def __launch_app():
         dropdown_barrels.grid(row = 6, column = 0, columnspan = 4, rowspan = 1, pady = 2)
         selected_barrel.trace('w', partial(show_ballistic_info, selected_barrel, ammo))
         show_ballistic_info(selected_barrel, ammo)
+        calculate_ttk()
 
     def show_ballistic_info(barrel_selection, ammo, *args):
         
-        text_ttk_dmg.config(text="")
-        text_ttk_dps.config(text="")
-        text_ttk_stk.config(text="")
-        text_ttk_ttk.config(text="")
-
         global current_ammo_config
         current_ammo_config = []
         label_ttk_title.config(text= "TTK Calculator (No armor)") 
@@ -201,7 +192,7 @@ def __launch_app():
         fig_canvas.config(image=img)
         fig_canvas.image = img
         fig_canvas.grid(row = 7, column = 0, columnspan = 4, rowspan = 1, pady = 2)
-        
+        calculate_ttk()
         #TTK calculator elements
 
 
