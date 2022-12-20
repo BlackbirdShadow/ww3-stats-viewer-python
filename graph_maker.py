@@ -50,6 +50,6 @@ def get_graph_figure(ammo_data, title, color):
     plt.title(title)
     plt.xlabel('Distance (Meters)')
     plt.ylabel('Damage')
-
+    plt.close()
     return figure
 
