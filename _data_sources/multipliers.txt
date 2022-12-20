@@ -1,0 +1,4 @@
+0.67 for legs
+0.57 for feet
+2.0 for head
+rest is 1.0
