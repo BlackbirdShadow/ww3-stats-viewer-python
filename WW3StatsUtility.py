@@ -162,10 +162,10 @@ def __launch_app():
         selected_barrel = StringVar(root)
         dropdown_barrels = OptionMenu(root, selected_barrel, *barrel_options)
         dropdown_barrels.config(width=15)
-        selected_barrel.set("Choose a barrel...")
+        selected_barrel.set("Standard")
         dropdown_barrels.grid(row = 6, column = 0, columnspan = 4, rowspan = 1, pady = 2)
         selected_barrel.trace('w', partial(show_ballistic_info, selected_barrel, ammo))
-
+        show_ballistic_info(selected_barrel, ammo)
 
     def show_ballistic_info(barrel_selection, ammo, *args):
         
@@ -176,7 +176,7 @@ def __launch_app():
 
         global current_ammo_config
         current_ammo_config = []
-        label_ttk_title.config(text= "TTK Calculator") 
+        label_ttk_title.config(text= "TTK Calculator (No armor)") 
 
         ammo_stats = []
         title = ammo.name + " with " + barrel_selection.get() + " barrel"
