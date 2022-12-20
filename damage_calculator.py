@@ -1,5 +1,5 @@
 from scipy.interpolate import interp1d
-
+import numpy as np
 
 def calculate_damage(ammo_data: list, distance:int, region:str) -> int:
     
@@ -22,6 +22,6 @@ def calculate_damage(ammo_data: list, distance:int, region:str) -> int:
     elif region == "Feet":
         raw_damage = raw_damage*0.57
 
-    damage = int(round(raw_damage))
+    damage = int(np.round(raw_damage))
 
     return damage
